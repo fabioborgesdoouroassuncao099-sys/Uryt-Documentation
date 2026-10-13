@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uryt — Documentation</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #0d0d12;
+    color: #e8e8e8;
+    line-height: 1.7;
+    padding: 20px;
+  }
+  header {
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 1px solid #2a2a3a;
+  }
+  header h1 {
+    font-size: 3.5em;
+    letter-spacing: 4px;
+    background: linear-gradient(90deg, #00d4ff, #7b2fff, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    text-shadow: 0 0 40px rgba(0,212,255,0.5);
+  }
+  header p { color: #888; font-style: italic; font-size: 1.1em; }
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+  }
+  .tab {
+    background: #1a1a24;
+    color: #aaa;
+    border: 1px solid #2a2a3a;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .tab:hover { background: #22222e; color: #ddd; }
+  .tab.active {
+    background: linear-gradient(135deg, #00d4ff, #7b2fff);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 0 20px rgba(0,212,255,0.4);
+  }
+  .content {
+    max-width: 850px;
+    margin: 0 auto;
+    background: #14141c;
+    border: 1px solid #2a2a3a;
+    border-radius: 12px;
+    padding: 40px;
+  }
+  .doc { display: none; }
+  .doc.active { display: block; animation: fade 0.3s; }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  .doc p { margin-bottom: 18px; font-size: 1.05em; color: #d0d0d8; }
+  .doc code {
+    background: #0a0a10;
+    color: #00d4ff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95em;
+    border: 1px solid #2a2a3a;
+  }
+  footer {
+    text-align: center;
+    padding: 40px 20px 20px;
+    color: #555;
+    font-size: 0.9em;
+    margin-top: 40px;
+    border-top: 1px solid #2a2a3a;
+  }
+  footer strong { color: #7b2fff; }
+  @media (max-width: 600px) {
+    header h1 { font-size: 2.2em; }
+    .content { padding: 20px; }
+    .tab { padding: 10px 16px; font-size: 0.9em; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>URYT</h1>
+  <p>Documentação oficial · v0.1</p>
+</header>
+
+<div class="tabs">
+  <button class="tab active" data-lang="pt">🇧🇷 Português</button>
+  <button class="tab" data-lang="en">🇺🇸 English</button>
+  <button class="tab" data-lang="es">🇪🇸 Español</button>
+</div>
+
+<div class="content">
+
+  <div class="doc active" id="pt">
+    <p>A Uryt é uma linguagem de programação compilada, de extensão <code>.Uryt</code>, criada com foco em aplicações visuais, imagens e jogos. Sua proposta é oferecer uma sintaxe curta, original e independente, sem copiar estruturas de linguagens consagradas como Python, JavaScript ou C. Cada comando tem nome e forma próprios, o que dá à linguagem identidade clara e distinta de qualquer outra existente.</p>
+    <p>A estrutura de um arquivo Uryt consiste em uma sequência de comandos escritos linha a linha. O ponto e vírgula atua como separador de comandos, mas só aparece ao final de uma linha quando existe mais código depois dela. Se o comando for o último do arquivo, ele termina sem ponto e vírgula. Essa regra vale para todos os comandos da linguagem, incluindo os comandos de imagem.</p>
+    <p>Comentários são escritos entre colchetes. Tudo o que estiver entre um colchete de abertura e um de fechamento é ignorado pelo compilador. Essa é a única forma de comentário na linguagem, e ela serve tanto para anotações do programador quanto para documentar trechos do código.</p>
+    <p>O operador central da Uryt é o <code>/^</code>, que possui dois significados dependendo do contexto. Fora de uma estrutura condicional, ele realiza atribuição, definindo o valor de uma variável. Dentro de uma estrutura condicional, ele realiza comparação de igualdade, testando se dois valores são iguais. Essa polivalência é uma das marcas registradas da linguagem, que resolve a distinção pelo contexto em vez de usar símbolos diferentes.</p>
+    <p>As variáveis armazenam valores e podem ser usadas em atribuições, comparações e outras operações. A atribuição aceita tanto um número direto quanto o valor de outra variável. Não há necessidade de declarar tipo previamente: a variável assume o valor que lhe for atribuído.</p>
+    <p>A impressão na tela é feita por meio do comando <code>One.class&lt;text&gt;</code>, seguido do texto entre aspas. Esse comando já imprime diretamente, sem necessidade de chamada adicional. É o principal meio de saída de texto da linguagem.</p>
+    <p>A estrutura condicional é aberta pelo comando <code>Gl.</code>, que recebe uma comparação feita com <code>/^</code> e termina com ponto e vírgula. O bloco seguinte é executado caso a condição seja verdadeira. O comando <code>Jin;</code> marca o senão, e o bloco posterior a ele é executado caso a condição seja falsa.</p>
+    <p>O loop é aberto pelo comando <code>L.loop;</code>, que inicia uma estrutura de repetição. O bloco seguinte é repetido enquanto o loop estiver ativo. O modo de encerramento do loop ainda não foi definido formalmente na linguagem.</p>
+    <p>A Uryt possui suporte nativo a imagens, ou seja, o recurso faz parte da própria linguagem e não de uma biblioteca externa. O único formato aceito é o <code>.jpg</code>. A imagem é carregada pelo comando <code>jpg.</code> seguido do link entre aspas, sem qualquer outro texto dentro das aspas. Após o carregamento, é obrigatório definir o tamanho da imagem por meio dos comandos <code>Rig.</code>, <code>Lef.</code>, <code>Up.</code> e <code>Down.</code>, que correspondem, respectivamente, a direita, esquerda, cima e baixo. Cada comando recebe um número entre parênteses que representa o tamanho. Se o tamanho não for definido, a imagem não aparece. Os comandos de tamanho seguem a mesma regra do ponto e vírgula: ele só aparece ao final se houver mais código depois.</p>
+    <p>A linguagem é compilada, o que significa que o código-fonte é traduzido antes da execução, e não interpretado linha a linha. Isso dá à Uryt um caráter mais sério e mais próximo de linguagens de baixo nível, ainda que sua sintaxe seja curta e visual.</p>
+    <p>Diversos pontos da linguagem ainda não foram definidos formalmente. Entre eles estão: a forma de encerramento do loop, a existência de outros operadores de comparação além da igualdade, a presença de operadores aritméticos, a possibilidade de armazenar textos em variáveis, a existência de outros tipos de dados além de número e texto, a forma de leitura de entrada do usuário, a geração de valores aleatórios, o comando de saída do programa e o modo exato como os comandos de tamanho afetam a imagem na prática.</p>
+    <p>Mesmo com essas definições em aberto, a Uryt já possui identidade consolidada, com sintaxe própria, regras próprias e foco próprio. É uma linguagem pensada para quem quer programar com foco visual, com comandos curtos e com uma estética que remete a sistemas compilados de verdade.</p>
+  </div>
+
+  <div class="doc" id="en">
+    <p>Uryt is a compiled programming language, with the <code>.Uryt</code> extension, created with a focus on visual applications, images, and games. Its aim is to offer a short, original, and independent syntax, without copying structures from established languages like Python, JavaScript, or C. Each command has its own name and form, giving the language a clear and distinct identity from any other.</p>
+    <p>The structure of a Uryt file consists of a sequence of commands written line by line. The semicolon acts as a command separator, but only appears at the end of a line when there is more code after it. If the command is the last in the file, it ends without a semicolon. This rule applies to all commands in the language, including image commands.</p>
+    <p>Comments are written between square brackets. Everything between an opening and closing square bracket is ignored by the compiler. This is the only form of comment in the language, and it serves both for programmer notes and for documenting sections of code.</p>
+    <p>The central operator of Uryt is <code>/^</code>, which has two meanings depending on the context. Outside of a conditional structure, it performs assignment, setting the value of a variable. Inside a conditional structure, it performs equality comparison, testing if two values are equal. This versatility is one of the hallmarks of the language, which resolves the distinction through context instead of using different symbols.</p>
+    <p>Variables store values and can be used in assignments, comparisons, and other operations. Assignment accepts both a direct number and the value of another variable. There is no need to declare the type beforehand: the variable assumes the value assigned to it.</p>
+    <p>Printing to the screen is done using the <code>One.class&lt;text&gt;</code> command, followed by the text in quotation marks. This command prints directly, without needing an additional call. It's the language's main way of outputting text.</p>
+    <p>The conditional structure is opened by the <code>Gl.</code> command, which receives a comparison made with <code>/^</code> and ends with a semicolon. The following block is executed if the condition is true. The <code>Jin;</code> command marks the else, and the block after it is executed if the condition is false.</p>
+    <p>The loop is opened by the <code>L.loop;</code> command, which starts a repetition structure. The following block is repeated while the loop is active. The loop termination method has not yet been formally defined in the language.</p>
+    <p>Uryt has native image support; that is, the feature is part of the language itself and not an external library. The only accepted format is <code>.jpg</code>. The image is loaded by the <code>jpg.</code> command followed by the link in quotation marks, without any other text inside the quotation marks. After loading, it is mandatory to define the image size using the <code>Rig.</code>, <code>Lef.</code>, <code>Up.</code>, and <code>Down.</code> commands, which correspond to right, left, up, and down, respectively. Each command receives a number in parentheses representing the size. If the size is not defined, the image does not appear. Size commands follow the same rule as the semicolon: it only appears at the end if there is more code after it.</p>
+    <p>The language is compiled, meaning that the source code is translated before execution, not interpreted line by line. This gives Uryt a more serious character and makes it closer to low-level languages, even though its syntax is short and visual.</p>
+    <p>Several aspects of the language have not yet been formally defined. Among them are: the way the loop ends, the existence of other comparison operators besides equality, the presence of arithmetic operators, the possibility of storing text in variables, the existence of other data types besides numbers and text, the way user input is read, the generation of random values, the program's exit command, and the exact way in which size commands affect the image in practice.</p>
+    <p>Even with these open definitions, Uryt already has a consolidated identity, with its own syntax, rules, and focus. It's a language designed for those who want to program with a visual focus, using short commands and with an aesthetic reminiscent of real compiled systems.</p>
+  </div>
+
+  <div class="doc" id="es">
+    <p>Uryt es un lenguaje de programación compilado, con la extensión <code>.Uryt</code>, creado con un enfoque en aplicaciones visuales, imágenes y juegos. Su objetivo es ofrecer una sintaxis corta, original e independiente, sin copiar estructuras de lenguajes establecidos como Python, JavaScript o C. Cada comando tiene su propio nombre y forma, lo que le da al lenguaje una identidad clara y distinta de cualquier otro.</p>
+    <p>La estructura de un archivo Uryt consiste en una secuencia de comandos escritos línea por línea. El punto y coma actúa como separador de comandos, pero solo aparece al final de una línea cuando hay más código después. Si el comando es el último en el archivo, termina sin punto y coma. Esta regla se aplica a todos los comandos del lenguaje, incluidos los comandos de imagen.</p>
+    <p>Los comentarios se escriben entre corchetes. Todo lo que se encuentra entre un corchete de apertura y cierre es ignorado por el compilador. Esta es la única forma de comentario en el lenguaje, y sirve tanto para notas del programador como para documentar fragmentos de código.</p>
+    <p>El operador central de Uryt es <code>/^</code>, que tiene dos significados según el contexto. Fuera de una estructura condicional, realiza asignaciones, estableciendo el valor de una variable. Dentro de una estructura condicional, realiza comparaciones de igualdad, comprobando si dos valores son iguales. Esta versatilidad es una de las características distintivas del lenguaje, que resuelve la distinción por contexto en lugar de usar diferentes símbolos.</p>
+    <p>Las variables almacenan valores y pueden usarse en asignaciones, comparaciones y otras operaciones. La asignación acepta tanto un número directo como el valor de otra variable. No es necesario declarar el tipo de antemano: la variable asume el valor que se le asigna.</p>
+    <p>La impresión en pantalla se realiza mediante el comando <code>One.class&lt;text&gt;</code>, seguido del texto entre comillas. Este comando imprime directamente, sin necesidad de una llamada adicional. Es la principal forma de generar texto en el lenguaje.</p>
+    <p>La estructura condicional se abre con el comando <code>Gl.</code>, que recibe una comparación realizada con <code>/^</code> y termina con un punto y coma. El siguiente bloque se ejecuta si la condición es verdadera. El comando <code>Jin;</code> marca el else, y el bloque siguiente se ejecuta si la condición es falsa.</p>
+    <p>El bucle se abre con el comando <code>L.loop;</code>, que inicia una estructura de repetición. El siguiente bloque se repite mientras el bucle está activo. El método de terminación del bucle aún no se ha definido formalmente en el lenguaje.</p>
+    <p>Uryt tiene soporte nativo para imágenes; es decir, la característica forma parte del propio lenguaje y no es una biblioteca externa. El único formato aceptado es <code>.jpg</code>. La imagen se carga con el comando <code>jpg.</code> seguido del enlace entre comillas, sin ningún otro texto dentro de las comillas. Tras la carga, es obligatorio definir el tamaño de la imagen mediante los comandos <code>Rig.</code>, <code>Lef.</code>, <code>Up.</code> y <code>Down.</code>, que corresponden a derecha, izquierda, arriba y abajo, respectivamente. Cada comando recibe un número entre paréntesis que representa el tamaño. Si no se define el tamaño, la imagen no aparece. Los comandos de tamaño siguen la misma regla que el punto y coma: solo aparece al final si hay más código después.</p>
+    <p>El lenguaje es compilado, lo que significa que el código fuente se traduce antes de la ejecución, no se interpreta línea por línea. Esto le da a Uryt un carácter más serio y lo acerca a los lenguajes de bajo nivel, aunque su sintaxis sea corta y visual.</p>
+    <p>Varios aspectos del lenguaje aún no se han definido formalmente. Entre ellas se encuentran: la forma en que finaliza el bucle, la existencia de otros operadores de comparación además de la igualdad, la presencia de operadores aritméticos, la posibilidad de almacenar texto en variables, la existencia de otros tipos de datos además de números y texto, la forma en que se lee la entrada del usuario, la generación de valores aleatorios, el comando de salida del programa y la forma exacta en que los comandos de tamaño afectan la imagen en la práctica.</p>
+    <p>Aun con estas definiciones abiertas, Uryt ya tiene una identidad consolidada, con su propia sintaxis, reglas y enfoque. Es un lenguaje diseñado para quienes desean programar con un enfoque visual, utilizando comandos cortos y con una estética que recuerda a los sistemas compilados reales.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>Uryt</strong> — Linguagem de programação compilada · v0.1</p>
+  <p>Criada por um garoto de 12 anos 🔥</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.tab');
+  const docs = document.querySelectorAll('.doc');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const idioma = tab.dataset.lang;
+
+      tabs.forEach(t => t.classList.remove('active'));
+      docs.forEach(d => d.classList.remove('active'));
+
+      tab.classList.add('active');
+      document.getElementById(idioma).classList.add('active');
+    });
+  });
+});
+</script>
+
+</body>
+</html>
